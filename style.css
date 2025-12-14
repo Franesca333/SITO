@@ -1,0 +1,1465 @@
+@charset "UTF-8";
+/* ================================================= */
+/* ============== VARIABILI E RESET GLOBALI (SCSS) ============== */
+/* ================================================= */
+/* Le variabili e i reset non usano la nidificazione, ma sono nel file .scss */
+:root {
+  /* Colori */
+  --primary: #ffffff; /* Sfondo principale (Bianco) */
+  --secondary: #f4f4f9; /* Sfondo secondario/footer (Grigio chiaro) */
+  --text: #1a1a1a; /* Testo principale (Nero/Grigio scuro) */
+  --muted: #1a1a1a; /* Testo secondario (Nero) */
+  --accent: #5EC6B3; /* COLORE ACCENTO (Verde acqua/Ciano) */
+  --accent-hover: #48a090; /* Tonalità più scura per hover */
+  /* Font */
+  --font-primary: "Poppins", sans-serif;
+  /* Spaziatura */
+  --container-width: 1100px;
+  --header-height: 80px;
+}
+
+/* Reset per coerenza tra browser */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding-top: 60px;
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover { /* NIDIFICATO */
+  color: var(--accent-hover);
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ================================================= */
+/* =================== HEADER E NAV (SCSS) ================ */
+/* ================================================= */
+.site-header {
+  background-color: var(--primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.site-header .header-inner { /* NIDIFICATO */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.brand .logo-icon { /* NIDIFICATO */
+  font-size: 1.8rem;
+  color: var(--accent);
+  margin-right: 8px;
+}
+
+.main-nav ul { /* NIDIFICATO */
+  list-style: none;
+  display: flex;
+}
+.main-nav ul li { /* NIDIFICATO */
+  margin-left: 30px;
+}
+.main-nav a { /* NIDIFICATO */
+  color: var(--text);
+  font-weight: 500;
+  position: relative;
+  padding-bottom: 5px;
+}
+.main-nav a::after { /* NIDIFICATO */
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+.main-nav a:hover::after, .main-nav a.current::after {
+  width: 100%;
+}
+.main-nav a.current { /* NIDIFICATO */
+  color: var(--accent);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+/* ================================================= */
+/* ================== SEZIONE HERO (SCSS) ================= */
+/* ================================================= */
+.hero-section {
+  padding: 130px 0 130px 0;
+  /* ================================================= */
+  /* ============= STILI IMMAGINE PROFILO (SCSS) ============ */
+  /* ================================================= */
+}
+.hero-section .hero-content { /* NIDIFICATO */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+.hero-section .hero-text { /* NIDIFICATO */
+  max-width: 600px;
+}
+.hero-section .greeting { /* NIDIFICATO */
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+.hero-section .hero-title { /* NIDIFICATO */
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+.hero-section .hero-subtitle { /* NIDIFICATO */
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+.hero-section .hero-description { /* NIDIFICATO */
+  font-size: 1.1rem;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+.hero-section .hero-cta { /* NIDIFICATO */
+  display: flex;
+  gap: 20px;
+}
+.hero-section .hero-image-wrapper { /* NIDIFICATO */
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 5px solid var(--accent);
+}
+.hero-section .hero-image-wrapper .hero-image { /* DOPPIA NIDIFICAZIONE */
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+
+/* ================================================= */
+/* ================== STILI BOTTONI (SCSS) ================ */
+/* ================================================= */
+.btn {
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+.btn i { /* NIDIFICATO: l'icona dentro il bottone */
+  margin-left: 8px;
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: var(--primary);
+  border: 2px solid var(--accent);
+}
+.btn-primary:hover { /* NIDIFICATO: lo stato hover del bottone primario */
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: none;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+.btn-secondary:hover { /* NIDIFICATO: lo stato hover del bottone secondario */
+  background-color: var(--accent);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* ================================================= */
+/* ================== RESPONSIVE DESIGN (SCSS) ============ */
+/* ================================================= */
+/* La media query deve essere l'ultima cosa, e all'interno puoi nidificare le classi */
+@media (max-width: 992px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-text {
+    max-width: 100%;
+  }
+  .hero-image-wrapper {
+    order: -1;
+    margin-bottom: 40px;
+  }
+  .hero-cta {
+    justify-content: center;
+  }
+  .welcome-message { /* SPOSTATO QUI */
+    text-align: center;
+    font-size: 3rem;
+    color: #1a1a1a;
+  }
+}
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 3rem;
+  }
+  .hero-subtitle {
+    font-size: 1.8rem;
+  }
+  .hero-cta {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .site-footer .container {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
+@media (max-width: 600px) {
+  .site-header {
+    height: 60px; /* Riduce l'altezza su mobile */
+  }
+  .site-header .header-inner {
+    height: 60px; /* Allinea gli elementi */
+    padding: 0 15px; /* Aggiunge margini laterali */
+  }
+  /* 🛑 REGOLA CRUCIALE PER IL MENU: NASCONDE HOME, CV, PROGETTI, CONTATTI */
+  .main-nav {
+    display: none; /* 🔑 Nasconde la navigazione di default */
+    position: absolute;
+    top: 60px; /* Sotto l'header */
+    width: 100%;
+    background-color: var(--primary);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+  }
+  .main-nav.open { /* Quando JavaScript aggiunge la classe .open */
+    display: block; /* Li fa apparire */
+  }
+  .main-nav ul {
+    flex-direction: column; /* I link vanno in colonna */
+  }
+  .main-nav ul li {
+    margin-left: 0;
+    text-align: center;
+    border-bottom: 1px solid var(--secondary);
+  }
+  .main-nav ul a {
+    padding: 15px 0;
+    display: block;
+  }
+  .nav-toggle {
+    display: block; /* Mostra l'icona hamburger */
+  }
+}
+/* ---------------------------------------------------- */
+/* --------- SEPARATORE SOTTILE (HOME PAGE) ----------- */
+/* ---------------------------------------------------- */
+.separator-slim {
+  border: none;
+  height: 3px; /* ALTEZZA MINIMA: Rende la linea quasi invisibile ma percepibile */
+  background-color: var(--accent); /* Il tuo colore verde acqua */
+  width: 50%; /* LARGHEZZA RIDOTTA: 20% della pagina (molto discreto) */
+  margin: 30px auto; /* Centra e imposta lo spazio SOPRA e SOTTO */
+}
+
+/* ================================================= */
+/* ============= SEZIONE CHI SONO (ABOUT - SCSS) ========== */
+/* ================================================= */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 25px;
+  position: relative;
+  padding-bottom: 10px;
+}
+.section-title::after { /* NIDIFICATO: la linea decorativa */
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent);
+  margin-top: 5px;
+}
+
+.about-section {
+  padding: 80px 0 150px;
+  /* Stile Immagine */
+}
+.about-section .about-content { /* NIDIFICATO */
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+}
+.about-section .about-text { /* NIDIFICATO */
+  max-width: 600px;
+}
+.about-section .about-description { /* NIDIFICATO */
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.about-section .about-image-wrapper { /* NIDIFICATO */
+  width: 400px;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--accent);
+}
+.about-section .about-image-wrapper .about-image { /* DOPPIA NIDIFICAZIONE */
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ================================================= */
+/* ================== RESPONSIVE DESIGN (About - SCSS) ==== */
+/* ================================================= */
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-image-wrapper {
+    order: -1;
+    margin-bottom: 40px;
+  }
+  /* Riscritto per nidificare le regole del titolo */
+  .section-title {
+    display: inline-block;
+  }
+  .section-title::after {
+    margin: 5px auto 0;
+  }
+}
+/* ================================================= */
+/* ============ SEZIONE COMPETENZE (SKILLS - SCSS) ======== */
+/* ================================================= */
+.skills-section {
+  padding: 80px 0;
+  /* Usa il colore SECONDARIO (verde acqua chiaro) per l'intera sezione */
+  background-color: #EAFBF8;
+}
+.skills-section .container {
+  text-align: center;
+}
+.skills-section .section-title {
+  padding-bottom: 10px;
+  text-align: center;
+  margin-bottom: 25px;
+  position: relative;
+}
+.skills-section .section-title::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent);
+  margin: 5px auto 0;
+}
+.skills-section .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 50px;
+}
+.skills-section .skill-card {
+  /* ✅ CORRETTO: Usa il colore PRIMARIO (bianco) per le card per creare contrasto */
+  background-color: var(--primary);
+  padding: 30px;
+  border-radius: 12px;
+  text-align: center;
+  /* Puoi aggiungere un'ombra leggera qui per profondità */
+}
+.skills-section .skill-card .skill-icon {
+  font-size: 3rem;
+  color: var(--text);
+  margin-bottom: 15px;
+}
+.skills-section .skill-card .skill-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.skills-section .skill-card .skill-description {
+  font-size: 1rem;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* ================================================= */
+/* ============ RESPONSIVE DESIGN (SKILLS - SCSS) ========= */
+/* ================================================= */
+/* Le media query rimangono invariate */
+@media (max-width: 992px) {
+  .skills-section .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .skills-section {
+    padding: 60px 0;
+  }
+  .skills-section .skills-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* ================================================= */
+/* ============= SEZIONE PROGETTI (PROJECTS - SCSS) ======= */
+/* ================================================= */
+.projects-section {
+  padding: 100px 0;
+  /* Sfondo Verde Acqua Chiaro */
+  background-color: var(--primary); /* Assumo che 'var(--bg-accent-light)' sia var(--secondary) */
+  /* -------------------------------------- */
+  /* --- Titolo Centrato con Lineetta ----- */
+  /* -------------------------------------- */
+  /* -------------------------------------- */
+  /* --- Griglia e Card Progetti ---------- */
+  /* -------------------------------------- */
+  /* -------------------------------------- */
+  /* --- CTA Finale ----------------------- */
+  /* -------------------------------------- */
+  /* ================================================= */
+  /* ================== STILI BOTTONI (SCSS) ================ */
+  /* ================================================= */
+}
+.projects-section .section-title { /* NIDIFICATO */
+  text-align: center;
+  padding-bottom: 10px;
+  margin-bottom: 50px;
+  position: relative;
+}
+.projects-section .section-title::after { /* NIDIFICATO */
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent);
+  margin: 5px auto 0;
+}
+.projects-section .projects-grid { /* NIDIFICATO */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.projects-section .project-card { /* NIDIFICATO */
+  background-color: var(--primary);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+.projects-section .project-card:hover { /* NIDIFICATO (Stato Hover) */
+  transform: translateY(-8px);
+}
+.projects-section .project-card .project-image { /* DOPPIA NIDIFICAZIONE */
+  width: 100%;
+  height: 220px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  display: block;
+}
+.projects-section .project-card .project-info { /* DOPPIA NIDIFICAZIONE */
+  padding: 20px 25px;
+}
+.projects-section .project-card .project-title { /* DOPPIA NIDIFICAZIONE */
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+.projects-section .project-card .project-tags { /* DOPPIA NIDIFICAZIONE */
+  font-size: 0.9rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+.projects-section .projects-cta { /* NIDIFICATO */
+  text-align: center;
+  margin-top: 60px;
+}
+.projects-section .btn {
+  padding: 12px 25px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+}
+.projects-section .btn i { /* NIDIFICATO: l'icona dentro il bottone */
+  margin-left: 8px;
+}
+.projects-section .btn-primary {
+  background-color: var(--accent);
+  color: var(--primary);
+  border: 2px solid var(--accent);
+}
+.projects-section .btn-primary:hover { /* NIDIFICATO: lo stato hover del bottone primario */
+  background-color: var(--accent-hover);
+  border-color: var(--accent-hover);
+  transform: translateY(-2px);
+  color: var(--primary); /* ✅ CORREZIONE: Imposta il testo su bianco all'hover */
+}
+.projects-section .btn-secondary {
+  background: none;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+.projects-section .btn-secondary:hover { /* NIDIFICATO: lo stato hover del bottone secondario */
+  background-color: var(--accent);
+  color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* Chiusura di .projects-section */
+/* NOTA: Gli stili .btn-primary li abbiamo già convertiti e li lasciamo nel blocco Bottoni. */
+/* ================================================= */
+/* =========== RESPONSIVE DESIGN (PROJECTS - SCSS) ======== */
+/* ================================================= */
+@media (max-width: 992px) {
+  .projects-section .projects-grid { /* NIDIFICATO */
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .projects-section .projects-grid { /* NIDIFICATO */
+    grid-template-columns: 1fr;
+  }
+}
+/* ================================================= */
+/* ============= SEZIONE CTA FINALE (SCSS) ================ */
+/* ================================================= */
+.final-cta-section {
+  padding: 120px 0;
+  text-align: center;
+  /* Regole del bottone finale (che presumiamo sia anche .btn-primary) */
+  /* === Adattamento Responsive NIDIFICATO === */
+}
+.final-cta-section .final-cta-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 40px;
+}
+.final-cta-section .btn-final-cta {
+  font-size: 1.15rem;
+  padding: 12px 28px;
+  /* Gestiamo l'hover per sovrascrivere il colore del testo, se necessario */
+}
+.final-cta-section .btn-final-cta:hover {
+  /* 🔑 CORREZIONE: Forza il colore del testo a rimanere bianco all'hover */
+  color: var(--primary);
+}
+@media (max-width: 600px) {
+  .final-cta-section {
+    padding: 80px 0;
+  }
+  .final-cta-section .final-cta-title {
+    font-size: 2rem;
+  }
+}
+
+/* ================================================= */
+/* ===================== FOOTER (SCSS) ==================== */
+/* ================================================= */
+.site-footer {
+  padding: 40px;
+  background-color: #EAFBF8; /* Usiamo la variabile per il Verde Acqua Chiaro */
+  color: var(--muted);
+  font-size: 0.95rem;
+  /* === Responsive NIDIFICATO === */
+  /* Assicurati che tu abbia le regole responsive del footer alla fine del file @media(max-width: 768px) */
+}
+.site-footer .footer-content { /* NIDIFICATO */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.site-footer .footer-brand { /* NIDIFICATO */
+  color: var(--text);
+  font-weight: 600;
+}
+.site-footer .footer-socials { /* NIDIFICATO */
+  display: flex;
+  align-items: center;
+}
+.site-footer .footer-socials .social-prompt { /* DOPPIA NIDIFICAZIONE */
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-right: 10px;
+}
+.site-footer .footer-socials a { /* DOPPIA NIDIFICAZIONE: il link dell'icona */
+  color: var(--text);
+  font-size: 1.5rem;
+  margin-left: 15px;
+}
+.site-footer .footer-socials a:hover { /* NIDIFICATO: l'hover sull'icona */
+  color: var(--accent);
+}
+
+/* ================================================= */
+/* ============ PAGINA CURRICULUM VITAE (SCSS) ============ */
+/* ================================================= */
+.cv-page-main {
+  padding: 20px 0;
+  background-color: var(--primary);
+}
+
+.cv-title { /* NIDIFICATO */
+  text-align: left;
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 50px;
+}
+
+/* Contenitore principale del layout a due colonne */
+.cv-content-wrapper { /* NIDIFICATO */
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  /* Colonna di sinistra (Foto e Info) */
+  /* Colonna di destra (Istruzione e Competenze) */
+  /* Stili per la foto del CV */
+  /* Stili per i blocchi di informazione (Colonna Sinistra) */
+  /* Stili per le sezioni di Istruzione/Competenze (Colonna Destra) */
+  /* Stili Titoli (Header generico per blocchi) */
+  /* Timeline (Istruzione) */
+  /* Skills List */
+}
+.cv-content-wrapper .cv-col-left { /* DOPPIA NIDIFICAZIONE */
+  width: 35%;
+  padding-right: 40px;
+  border-right: 2px solid var(--accent); /* Divisore verticale */
+}
+.cv-content-wrapper .cv-col-right { /* DOPPIA NIDIFICAZIONE */
+  width: 65%;
+  padding-left: 40px;
+}
+.cv-content-wrapper .cv-photo-wrapper { /* DOPPIA NIDIFICAZIONE */
+  width: 150px;
+  height: 150px;
+  margin-bottom: 25px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--accent);
+}
+.cv-content-wrapper .cv-photo-wrapper .cv-photo { /* TRIPLA NIDIFICAZIONE */
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+.cv-content-wrapper .info-block { /* DOPPIA NIDIFICAZIONE */
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border);
+}
+.cv-content-wrapper .cv-section { /* DOPPIA NIDIFICAZIONE */
+  margin-bottom: 40px;
+}
+.cv-content-wrapper h3 {
+  color: var(--text);
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+.cv-content-wrapper .timeline-item { /* DOPPIA NIDIFICAZIONE */
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 15px;
+}
+.cv-content-wrapper .timeline-date { /* DOPPIA NIDIFICAZIONE */
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.cv-content-wrapper .timeline-title { /* DOPPIA NIDIFICAZIONE */
+  font-weight: 600;
+  color: var(--text);
+}
+.cv-content-wrapper .skills-list { /* DOPPIA NIDIFICAZIONE */
+  list-style: none;
+  padding-left: 0;
+}
+.cv-content-wrapper .skills-list li { /* TRIPLA NIDIFICAZIONE */
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  line-height: 1.4;
+  color: var(--text);
+}
+.cv-content-wrapper .skills-list li::before { /* QUADRUPLA NIDIFICAZIONE */
+  content: "•";
+  color: var(--accent);
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+/* ================================================= */
+/* ======== RESPONSIVE DESIGN FINALE (CV MOBILE) ===== */
+/* ================================================= */
+@media (max-width: 768px) {
+  /* 1. SELETTIVITÀ: Rimuove i padding esterni di Bootstrap SOLO nella pagina CV */
+  .cv-page-main .container, .cv-page-main .container-fluid {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+  /* 2. Contenitore principale del CV: Rimuovi il padding laterale e usa la larghezza intera */
+  .cv-content-wrapper {
+    flex-direction: column;
+    gap: 30px;
+    /* RIMUOVI IL PADDING LATERALE QUI! */
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 40px 0 !important; /* Mantiene 40px sopra e sotto, ma 0px sui lati */
+  }
+  /* 3. Allinea il titolo principale del CV al bordo del Header (es. 20px) */
+  .cv-title {
+    text-align: left !important;
+    padding-left: 20px; /* <--- QUESTO DOVREBBE ALLINEARE AL HEADER */
+    padding-right: 20px;
+  }
+  /* 4. Colonna Sinistra (Foto e Info Personali) */
+  .cv-col-left {
+    width: 100% !important;
+    padding: 0 20px !important; /* Ripristina 20px di padding su entrambi i lati per il contenuto */
+    border-right: none !important;
+    text-align: left;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+  }
+  /* 5. Colonna Destra (Istruzione e Competenze) */
+  .cv-col-right {
+    width: 100% !important;
+    padding: 0 20px !important; /* Ripristina 20px di padding su entrambi i lati per il contenuto */
+    border-right: none !important;
+    text-align: left;
+  }
+  /* 6. Centratura Foto e Testi */
+  .cv-photo-wrapper {
+    margin: 0 auto 25px auto;
+  }
+  .cv-content-wrapper h3,
+  .cv-content-wrapper .info-block {
+    text-align: left;
+  }
+  /* Regole per le Liste (Mantenute pulite) */
+  .skills-list, .timeline-item {
+    text-align: left;
+    padding-left: 0;
+    margin: 0;
+  }
+  .skills-list li, .timeline-item {
+    text-align: left;
+    display: block;
+    margin: 0 0 8px 0;
+    max-width: 100%;
+  }
+}
+/* ================================================= */
+/* ============= BREADCRUMB NAVIGATION (SCSS) ============= */
+/* ================================================= */
+.breadcrumb-nav {
+  padding-top: 20px;
+  padding-bottom: 5px;
+  font-size: 0.95rem;
+  color: var(--text);
+  padding-left: 15px;
+}
+.breadcrumb-nav .breadcrumb-link { /* NIDIFICATO */
+  text-decoration: none;
+  color: var(--muted);
+  transition: color 0.3s ease;
+  font-weight: 500;
+}
+.breadcrumb-nav .breadcrumb-link:hover { /* DOPPIA NIDIFICAZIONE (Stato Hover) */
+  color: var(--accent);
+}
+.breadcrumb-nav .breadcrumb-separator { /* NIDIFICATO */
+  margin: 0 8px;
+  color: var(--muted);
+}
+.breadcrumb-nav .breadcrumb-current { /* NIDIFICATO */
+  color: var(--text);
+}
+
+/* ================================================= */
+/* ============ PAGINA CONTATTI (MODULO - SCSS) =========== */
+/* ================================================= */
+.contact-page-main {
+  padding: 50px 0 80px 0;
+  /* Rimuovi text-align se presente nel file SCSS! */
+}
+
+.contact-page-main .contact-title { /* NIDIFICATO */
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.contact-page-main .contact-subtitle { /* NIDIFICATO */
+  font-size: 1.1rem;
+  color: var(--text);
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.contact-page-main .instruction { /* NIDIFICATO */
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.contact-form {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: var(--primary);
+  border-radius: 12px;
+}
+
+.contact-form .form-group { /* NIDIFICATO: contenitore di ogni campo */
+  margin-bottom: 20px;
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea { /* DOPPIA NIDIFICAZIONE: Stili generali per input/textarea */
+  width: 100%;
+  padding: 15px;
+  border: 2px solid var(--accent);
+  border-radius: 8px;
+  font-size: 1rem;
+  color: var(--text);
+  background-color: var(--primary);
+  transition: border-color 0.3s ease;
+}
+
+.contact-form .form-group input:focus, .contact-form .form-group textarea:focus { /* TRIPLA NIDIFICAZIONE: Stato Focus */
+  border-color: #00897b;
+  outline: none;
+}
+
+.contact-form .form-group textarea { /* DOPPIA NIDIFICAZIONE: Stili specifici per textarea */
+  resize: none;
+}
+
+.contact-form ::-moz-placeholder { /* NIDIFICATO: Selettore specifico per placeholder */
+  color: var(--muted);
+  opacity: 1;
+}
+
+.contact-form ::-moz-placeholder,
+.contact-form ::placeholder { /* NIDIFICATO: Selettore specifico per placeholder */
+  color: var(--muted);
+  opacity: 1;
+}
+
+.contact-form .submit-button-wrapper { /* NIDIFICATO */
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+/* ------------------- */
+/* --- BOTTONE SUBMIT --- */
+/* ------------------- */
+.btn-submit {
+  width: 150px;
+  padding: 10px 20px;
+  font-size: 1.1rem;
+  background-color: var(--accent);
+  color: var(--primary);
+  opacity: 1;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover { /* NIDIFICATO: Stato Hover */
+  background-color: #00897b;
+}
+
+/* ================================================= */
+/* =============== RESPONSIVE DESIGN (Contatti) ========== */
+/* ================================================= */
+@media (max-width: 600px) {
+  .contact-form {
+    padding: 20px;
+  }
+  /* Rimuovi name-fields e form-group.half-width da qui! */
+  .submit-button-wrapper {
+    justify-content: center; /* Centra il bottone su mobile */
+  }
+}
+/* ================================================= */
+/* ============ PAGINA PROGETTI (GRID - SCSS) ============= */
+/* ================================================= */
+.projects-page-main {
+  padding-top: 30px;
+  padding-bottom: 80px;
+}
+.projects-page-main .projects-title { /* NIDIFICATO */
+  text-align: left;
+  font-size: 2.5rem;
+  color: var(--accent);
+  margin-bottom: 5px;
+  margin-top: 0;
+  padding-left: 0;
+}
+.projects-page-main .projects-subtitle { /* NIDIFICATO */
+  text-align: left;
+  color: var(--text);
+  margin-bottom: 70px;
+  padding-left: 0;
+  font-size: 1.1rem;
+}
+
+/* 🔑 LAYOUT GRIGLIA PRINCIPALE */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 0px;
+  /* ================================================= */
+  /* ============== RESPONSIVITÀ GRIGLIA NIDIFICATA ============== */
+  /* ================================================= */
+}
+@media (max-width: 992px) {
+  .projects-grid { /* Aggiorna .projects-grid */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+@media (max-width: 600px) {
+  .projects-grid { /* Aggiorna .projects-grid */
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+/* ================================================= */
+/* ============ STILI CARD PROGETTI (SCSS) - CORRETTO ================ */
+/* ================================================= */
+.project-card {
+  /* Stili generali della card */
+  background-color: var(--primary);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+.project-card .project-image {
+  width: 100%;
+  height: 220px; /* Altezza fissa per l'immagine */
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  display: block;
+  margin-bottom: 0;
+}
+.project-card .card-content {
+  padding: 15px 20px 20px 20px;
+  /* 🔑 Assicura che questo blocco prenda lo spazio rimanente per forzare l'altezza uniforme */
+  flex-grow: 1;
+  display: flex; /* Anche il contenuto è un flex container */
+  flex-direction: column;
+  justify-content: space-between; /* Spinge il bottone in basso */
+}
+.project-card .card-title {
+  font-size: 1.4rem;
+  color: var(--text);
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.project-card .card-description {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+  flex-grow: 1; /* Permette alla descrizione di occupare spazio */
+}
+.project-card .btn-card {
+  display: inline-block;
+  padding: 8px 15px;
+  background-color: var(--accent);
+  color: var(--primary);
+  text-decoration: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+  align-self: flex-start; /* Allinea il bottone a sinistra */
+}
+.project-card .btn-card:hover {
+  background-color: #00897b;
+  color: var(--primary);
+}
+
+/* ================================================= */
+/* ============= RESPONSIVITÀ FINALE (MOBILE - SCSS) - CORRETTA ====== */
+/* ================================================= */
+@media (max-width: 600px) {
+  /* === STILI DEL MENU (Lasciati invariati) === */
+  .nav-toggle {
+    display: block;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--text);
+    z-index: 1001;
+  }
+  .site-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  .main-nav {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    background-color: var(--primary);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease-out;
+  }
+  .main-nav.open {
+    height: 235px;
+  }
+  .main-nav ul {
+    display: block;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-align: center;
+  }
+  .main-nav ul li {
+    border-bottom: 1px solid var(--secondary);
+  }
+  .main-nav ul li a {
+    padding: 15px;
+    display: block;
+  }
+  /* === STILI CORRETTI DELLO SLIDER (Applicati direttamente a 600px) === */
+  /* 🛑 RESETTA LA MAX-WIDTH IMPOSTATA DA DESKTOP */
+  .slider-wrapper, .project-slider-container {
+    /* Azzeriamo la dimensione fissa desktop e usiamo solo la larghezza della viewport */
+    max-width: 100% !important;
+    width: 100%;
+  }
+  /* 🔑 APPLICA LA VERA DIMENSIONE MOBILE DOPO IL RESET */
+  .slider-wrapper {
+    max-width: 95vw !important; /* Limita il contenitore generale al 95% */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .project-slider-container {
+    max-width: 90vw !important; /* Contenitore visivo leggermente più piccolo */
+    margin-top: 20px;
+  }
+  /* Rimuove i margini estremi delle frecce per farle stare dentro la viewport */
+  .prev-button {
+    left: 5px;
+  }
+  .next-button {
+    right: 5px;
+  }
+  /* Assicura che l'immagine si adatti perfettamente alla nuova larghezza */
+  .slide img {
+    max-width: 100% !important; /* Sovrascrive qualsiasi max-width assoluta */
+    width: 100% !important;
+    height: auto;
+  }
+}
+/* ================================================= */
+/* ========= STILE PAGINA DETTAGLIO PROGETTO (FINALE) ========= */
+/* ================================================= */
+.project-detail-main {
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+.project-detail-header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding-bottom: 20px;
+}
+
+/* Stile del link di ritorno */
+.back-link {
+  color: var(--accent);
+  font-size: 1rem;
+  display: inline-block;
+  margin-bottom: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.project-detail-title {
+  font-size: 3rem;
+  color: var(--text);
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.project-detail-subtitle {
+  font-size: 1.2rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* 🛑 BLOCCO CORRETTO SENZA ERRORI DI SINTASSI SCSS */
+.project-meta-data {
+  margin-top: 25px;
+  font-size: 0.9rem;
+  color: #666;
+  /* Regola separata per evitare errori di annidamento */
+}
+.project-meta-data .meta-item { /* Uso .meta-item come da HTML fornito */
+  display: inline-block;
+  margin: 0 20px;
+  font-weight: 500;
+  position: relative;
+}
+.project-meta-data .meta-item:not(:last-child)::after {
+  content: "|";
+  position: absolute;
+  right: -15px;
+  color: #ddd;
+}
+
+.project-case-study {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.case-study-heading { /* Ho usato case-study-heading in HTML, coerente qui */
+  font-size: 2.2rem;
+  color: var(--text);
+  margin-top: 60px;
+  margin-bottom: 15px;
+  padding-bottom: 10px;
+  position: relative;
+  font-weight: 700;
+}
+
+.case-study-heading::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 4px;
+  background-color: var(--accent);
+  margin-top: 5px;
+}
+
+.project-case-study p {
+  line-height: 1.8;
+  margin-bottom: 25px;
+  color: #444;
+}
+
+/* ================================================= */
+/* =========== STILE LINK PROGETTO (project-link) =========== */
+/* ================================================= */
+.project-link {
+  color: var(--accent);
+  font-weight: 700; /* 🔑 QUESTO RENDE IL TESTO IN GRASSETTO */
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+.project-link:hover {
+  color: var(--accent-hover);
+}
+
+/* ================================================= */
+/* =========== STILI SEZIONE DOWNLOAD PDF (COMPLETO E ISOLATO) ========== */
+/* ================================================= */
+/* Contenitore per dare spazio sopra e sotto il link/testo */
+.download-section {
+  max-width: 800px;
+  margin: 40px auto 60px auto;
+  padding: 20px 0;
+  border-top: 1px solid #eee; /* Linea di separazione sottile */
+}
+
+/* Reset dei paragrafi all'interno della sezione download (per non inquinare) */
+.download-section p {
+  font-weight: 400 !important;
+  text-decoration: none !important;
+  line-height: 1.6;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* Stile per il testo descrittivo (per non essere grassetto) */
+.download-text-intro {
+  font-weight: 400 !important;
+  text-decoration: none !important;
+}
+
+/* 🛑 STILE PER IL LINK DI DOWNLOAD (BOLD, SOTTOLINEATO, COLORATO) */
+a.pdf-download-link {
+  color: var(--accent);
+  font-weight: 700 !important; /* Forza il grassetto per il testo */
+  transition: color 0.2s ease;
+}
+
+/* Stile per l'icona di download (DEVE ESSERE ANCH'ESSA GRASSETTA) */
+a.pdf-download-link i {
+  font-size: 1.1em;
+  margin-right: 5px;
+  font-weight: 700 !important; /* FORZA IL GRASSETTO ANCHE SULL'ICON */
+}
+
+/* Stile al passaggio del mouse (hover) */
+a.pdf-download-link:hover {
+  color: #48a090;
+}
+
+/* ================================================= */
+/* =========== STILI CAROSELLO/SLIDER (VERSIONE ESTERNA CORRETTA) ========== */
+/* ================================================= */
+/* 1. Contenitore Esterno (Wrapper) */
+.slider-wrapper {
+  /* 🔑 ESSENZIALE: Dà la base per il posizionamento delle frecce e definisce l'area massima (es. 700px) */
+  max-width: 700px;
+  margin: 50px auto;
+  position: relative;
+}
+
+/* 2. Contenitore delle Immagini */
+.project-slider-container {
+  /* Larghezza dello SLIDER VISIBILE */
+  max-width: 500px !important;
+  margin: 0 auto; /* Centra lo slider all'interno del wrapper di 700px */
+  position: relative;
+  overflow: hidden; /* Nasconde solo le slide che escono */
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eee;
+}
+
+.slider-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  flex-shrink: 0;
+  display: none;
+}
+
+.slide.active-slide {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  max-width: 500px; /* Larghezza massima dell'immagine */
+  height: auto;
+  display: block;
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* 3. Stile per i pulsanti di navigazione (Positioned relative to .slider-wrapper) */
+.prev-button, .next-button {
+  position: absolute; /* Assoluto rispetto al .slider-wrapper */
+  top: 50%;
+  opacity: 1;
+  transform: translateY(-50%);
+  transition: opacity 0.2s, background-color var(--accent) 0.2s, color 0.2s;
+  /* 🔑 DIMENSIONI E VISIBILITÀ */
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--accent);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.2s, background-color 0.2s;
+}
+
+.prev-button {
+  left: 10px; /* 10px dal bordo sinistro del wrapper (esterno all'immagine) */
+}
+
+.next-button {
+  right: 10px; /* 10px dal bordo destro del wrapper (esterno all'immagine) */
+}
+
+/* ================================================= */
+/* =========== RIPRISTINO STILI FRECCE SLIDER ========== */
+/* ================================================= */
+/* Stile base dei pulsanti di navigazione (per posizionarle fuori dal contenitore .project-slider-container) */
+.prev-button, .next-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  /* 🔑 DIMENSIONI E VISIBILITÀ (RIPRISTINATE) */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  z-index: 100;
+  /* STATO NORMALE: Bottone Bianco (o semi-trasparente) con freccia Verde Acqua */
+  background-color: rgba(255, 255, 255, 0.9);
+  color: var(--accent); /* Colore della freccia (chevron) */
+  border: 1px solid var(--accent); /* Bordo sottile verde acqua */
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 1;
+  transition: all 0.2s ease-in-out; /* Transizione fluida su tutti i cambiamenti */
+}
+
+/* Posizionamento rispetto al genitore .slider-wrapper */
+.prev-button {
+  left: 10px;
+}
+
+.next-button {
+  right: 10px;
+}
+
+/* 🔑 STATO HOVER: Bottone Verde Acqua con freccia Bianca */
+.prev-button:hover, .next-button:hover {
+  background-color: var(--accent); /* Inverte il colore a Verde Acqua */
+  color: white; /* Rende la freccia Bianca */
+  border-color: var(--accent); /* Mantiene o rafforza il bordo con lo stesso colore */
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); /* Aggiunge una piccola ombra per enfasi */
+}
+
+/* ================================================= */
+/* === RESPONSIVITÀ SLIDER (SOLO MOBILE < 600px) === */
+/* ================================================= */
+@media (max-width: 600px) {
+  /* 1. CONTENITORI: Forziamo la larghezza in base allo schermo (vw) */
+  .slider-wrapper {
+    /* Permette al contenitore generale di prendere quasi tutta la larghezza dello schermo */
+    max-width: 95vw !important;
+    width: 95vw !important;
+    margin: 20px auto !important; /* 🔑 FORZA CENTRAMENTO QUI */
+    /* Aggiungo queste due per annullare allineamenti esterni e forzare il blocco */
+    display: block !important;
+    text-align: center !important;
+  }
+  .project-slider-container {
+    /* Assicura che questo contenitore sia il 100% del wrapper (95vw) */
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 auto !important; /* 🔑 FORZA CENTRAMENTO QUI */
+    overflow: hidden !important;
+    /* Aggiunto per annullare allineamenti a sinistra interni */
+    display: block !important;
+  }
+  /* 2. IMMAGINI: Forziamo il ridimensionamento */
+  .slide, .slide img {
+    max-width: 100% !important;
+    width: 100% !important;
+    height: auto !important; /* Mantiene la proporzione e non fa zoomare */
+  }
+  /* 3. FRECCE: Le posiziona correttamente ai bordi del contenitore */
+  .prev-button {
+    left: 5px !important;
+  }
+  .next-button {
+    right: 5px !important;
+  }
+  /* 4. RESET DEL PADDING DEL CONTENITORE PRINCIPALE (Se necessario) */
+  .container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+}/*# sourceMappingURL=style.css.map */
