@@ -1653,3 +1653,12 @@ a.pdf-download-link:hover {
         padding-right: 10px !important;
     }
 }
+
+body {
+    overflow-x: hidden; /* Blocca lo spostamento laterale */
+    width: 100%;
+}
+img {
+    max-width: 100%; /* Impedisce alle foto di uscire dallo schermo */
+    height: auto;
+}
