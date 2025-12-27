@@ -1677,3 +1677,14 @@ a.pdf-download-link:hover {
 }
 
 
+/* REGOLE DI BLOCCO MOVIMENTO LATERALE */
+
+.project-detail-main, .slider-wrapper, .container {
+    overflow-x: hidden !important;
+    max-width: 100% !important;
+}
+
+img {
+    max-width: 100% !important;
+    height: auto !important;
+}
