@@ -1654,11 +1654,24 @@ a.pdf-download-link:hover {
     }
 }
 
-body {
-    overflow-x: hidden; /* Blocca lo spostamento laterale */
-    width: 100%;
+
+
+/* Impedisce lo scorrimento orizzontale su tutto il sito */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
 }
+
+/* Forza le immagini a non uscire mai dai bordi */
 img {
-    max-width: 100%; /* Impedisce alle foto di uscire dallo schermo */
-    height: auto;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+}
+
+.row {
+    margin-right: 0;
+    margin-left: 0;
 }
